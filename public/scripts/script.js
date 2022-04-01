@@ -8,11 +8,11 @@ const weatherParagraph = document.querySelector('#weather-message');
 weatherForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
 
-    errorParagraph.textContent = 'loading...';
+    generalParagraph.textContent = 'loading...';
     weatherParagraph.textContent = '';
 
     const location = locationInput.value;
-    fetch(`http://localhost:3000/weather?location=${location}`).then(res => {
+    fetch(`/weather?location=${location}`).then(res => {
         res.json().then(data => {
             if(data.error) {
                 generalParagraph.textContent = data.error;
